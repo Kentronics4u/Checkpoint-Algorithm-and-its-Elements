@@ -1,0 +1,44 @@
+ALGORITHM character_checking
+VAR
+  sentence_count INTEGER:=0 //counter for total number of characters including spaces
+  character_count INTEGER:=0 //counter for total number of character excluding spaces
+  word_count INTEGER:=1 //word count is initialized to 1 because the smallest word we can encounter in a sentence is 1.
+  vowel_count INTEGER:=0 //counter for total number of vowels
+  dot CHAR:="."
+  input STRING 
+BEGIN
+
+ Read(input)   /// user entered "This." as input
+
+
+
+/*use a while loop to get all the characters. Only stop when a full stop (dot) is encountered*/
+  WHILE (input[sentence_count] not dot) DO
+    sentence_count := sentence_count+1;
+    /*For each character read, increase the sentence count by 1*/
+  END_WHILE
+
+
+FOR i FROM 0 TO (sentence_count) STEP 1  DO
+  IF (input[i]=" ") THEN
+    word_count:=word_count+1
+  ELSE
+    character_count:=character_count+1
+  END_IF
+write(word_count)
+write(character_count)
+
+
+FOR j FROM 0 TO (sentence_count) STEP 1  DO
+  SWITCH (input[j]) DO
+  case "a" : vowel_count:=vowel+1; BREAK;
+  case "e" : vowel_count:=vowel+1; BREAK;
+  case "i" : vowel_count:=vowel+1; BREAK;
+  case "o" : vowel_count:=vowel+1; BREAK;
+  case "u" : vowel_count:=vowel+1; BREAK;
+  default : vowel_count
+END_SWITCH
+write(vowel_count)
+END_FOR
+
+END
